@@ -1,0 +1,14 @@
+{
+  "name": "todo-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fast local dashboard for C# TODO comments grouped by tags, files, classes, and methods.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "scan": "node server.js --scan"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
