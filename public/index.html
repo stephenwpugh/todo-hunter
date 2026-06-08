@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO Hunter</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">C# codebase scanner</p>
+      <h1>TODO Hunter</h1>
+      <p id="subtitle" class="subtitle">Scanning C# TODO comments...</p>
+    </div>
+    <div class="header-actions">
+      <button id="saveState" class="ghost-button" type="button">Save state</button>
+      <button id="refresh" class="primary-button" type="button">Refresh</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <nav class="tabs" aria-label="Dashboard views">
+      <button class="tab active" type="button" data-tab="dashboard">Dashboard</button>
+      <button class="tab" type="button" data-tab="todos">TODOs</button>
+    </nav>
+
+    <section id="dashboardTab" class="tab-panel active" aria-labelledby="Dashboard">
+      <div class="metrics">
+        <article class="metric metric-accent-teal">
+          <span>TODOs</span>
+          <strong id="todoCount">0</strong>
+        </article>
+        <article class="metric metric-accent-blue">
+          <span>C# files</span>
+          <strong id="fileCount">0</strong>
+        </article>
+        <article class="metric metric-accent-amber">
+          <span>Tags</span>
+          <strong id="tagCount">0</strong>
+        </article>
+        <article class="metric metric-accent-rose">
+          <span>Scan time</span>
+          <strong id="elapsedMs">0ms</strong>
+        </article>
+      </div>
+
+      <p id="snapshotStatus" class="snapshot-status" role="status"></p>
+
+      <div class="dashboard-grid">
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Release Load</h2>
+          </div>
+          <div id="releaseBars" class="bar-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Clean Code Categories</h2>
+          </div>
+          <div id="categoryBars" class="bar-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Top Files</h2>
+          </div>
+          <div id="fileBars" class="bar-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Tags</h2>
+          </div>
+          <div id="tagChips" class="chips"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="todosTab" class="tab-panel" aria-labelledby="TODOs">
+      <div class="list-layout">
+        <aside class="panel filters">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="Text, file, class, method">
+
+          <label for="tagFilter">Tag</label>
+          <select id="tagFilter"></select>
+
+          <label for="releaseFilter">Release</label>
+          <select id="releaseFilter"></select>
+
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter"></select>
+
+          <label for="groupBy">Group by</label>
+          <select id="groupBy">
+            <option value="none">None</option>
+            <option value="file">File</option>
+            <option value="className">Class</option>
+            <option value="methodName">Method</option>
+          </select>
+        </aside>
+
+        <section class="todo-column">
+          <div class="list-toolbar">
+            <div>
+              <h2>TODO Breakdown</h2>
+              <p id="resultSummary">0 visible TODOs</p>
+            </div>
+            <button id="clearFilters" class="ghost-button" type="button">Clear filters</button>
+          </div>
+          <div id="results" class="todo-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

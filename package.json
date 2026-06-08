@@ -1,5 +1,5 @@
 {
-  "name": "todo-dashboard",
+  "name": "todo-hunter",
   "version": "0.1.0",
   "private": true,
   "description": "Fast local dashboard for C# TODO comments grouped by tags, files, classes, and methods.",
